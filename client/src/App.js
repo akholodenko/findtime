@@ -5,7 +5,7 @@ import Header from "./components/header";
 function App() {
   return (
     <div className="App">
-      <Header title="First One" />
+      <Header title="First Two" />
     </div>
   );
 }
