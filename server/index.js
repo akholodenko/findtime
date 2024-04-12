@@ -5,8 +5,8 @@ const publicPath = path.join(__dirname, "..", "client/build");
 
 app.use(express.static(publicPath));
 
-app.get("/test/", (req, res) => {
-  res.send("Hello World!");
+app.get("/test", (req, res) => {
+  res.json({ sample: "Hello World!" });
 });
 
 app.get("/*", function (req, res) {

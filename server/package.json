@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-server": "npm run prebuild && npm run start-dev",
     "server": "npm run prebuild && npm start",
     "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 index.js",
+    "start-dev": "node --watch index.js",
     "prebuild": "cd .. && cd client && npm install && npm run build"
   },
   "keywords": [],
