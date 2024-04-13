@@ -1,12 +1,13 @@
 const express = require("express");
 const path = require("path");
+const { v4: uuidv4 } = require("uuid"); // https://www.npmjs.com/package/uuid
 const app = express();
 const publicPath = path.join(__dirname, "..", "client/build");
 
 app.use(express.static(publicPath));
 
 app.get("/test", (req, res) => {
-  res.json({ sample: "Hello World!" });
+  res.json({ sample: `Hello World!`, hash: uuidv4() });
 });
 
 app.get("/*", function (req, res) {
