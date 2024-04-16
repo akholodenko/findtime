@@ -1,14 +1,22 @@
 const express = require("express");
 const path = require("path");
-const { v4: uuidv4 } = require("uuid"); // https://www.npmjs.com/package/uuid
 const app = express();
 const publicPath = path.join(__dirname, "..", "client/build");
 
-app.use(express.static(publicPath));
+const availabilityController = require("./controllers/availabilityController");
 
-app.get("/test", (req, res) => {
-  res.json({ sample: `Hello World!`, hash: uuidv4() });
+app.use((req, res, next) => {
+  express.static(publicPath);
+
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
+
+app.post("/api/availability/create", availabilityController.createAvailability);
 
 app.get("/*", function (req, res) {
   res.sendFile(path.join(publicPath, "index.html"));
