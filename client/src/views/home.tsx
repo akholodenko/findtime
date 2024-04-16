@@ -10,7 +10,7 @@ const Home = () => {
 
   const onStartClick = () => {
     createAvailability().then((hash: string) => {
-      console.log("before navigate", hash);
+      console.log("createAvailability", hash);
       //   navigate(`/ft/${hash}`);
     });
   };
