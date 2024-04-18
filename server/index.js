@@ -5,9 +5,9 @@ const publicPath = path.join(__dirname, "..", "client/build");
 
 const availabilityController = require("./controllers/availabilityController");
 
-app.use((req, res, next) => {
-  express.static(publicPath);
+app.use(express.static(publicPath));
 
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
