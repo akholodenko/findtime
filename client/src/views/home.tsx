@@ -11,7 +11,7 @@ const Home = () => {
   const onStartClick = () => {
     createAvailability().then((hash: string) => {
       console.log("createAvailability", hash);
-      //   navigate(`/ft/${hash}`);
+      navigate(`/ft/${hash}`);
     });
   };
 
